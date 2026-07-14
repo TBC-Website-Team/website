@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thatcham Baptist Church — You Are Loved</title>
-  <meta name="description" content="A warm, welcoming Baptist church in Thatcham, West Berkshire. Sundays 10:30am & 6:30pm. Come as you are — church is the people, not the building." />
+  <meta name="description" content="A warm, welcoming Baptist church in Thatcham, West Berkshire. Sundays 10:30am Morning Worship, livestreamed on YouTube. Come as you are — church is the people, not the building." />
   <meta name="theme-color" content="#FBF6EE" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Figtree:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@500;600&family=Noto+Sans+SC:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23C15B33'/%3E%3Cpath d='M16 7v18M9 13h14' stroke='white' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
 </head>
@@ -87,46 +87,63 @@
       </div>
     </section>
 
+    <!-- ================= MULTILINGUAL WELCOME ================= -->
+    <section class="section" aria-labelledby="welcome-h">
+      <div class="wrap">
+        <div class="welcome-band reveal">
+          <span class="eyebrow">Everyone is welcome here</span>
+          <h2 id="welcome-h">A place for people from every nation</h2>
+          <ul class="welcome-words" aria-label="Welcome in several languages">
+            <li><span class="lang lang--lead">Welcome<small>English</small></span></li>
+            <li><span class="lang" lang="uk">Ласкаво просимо<small>Ukrainian</small></span></li>
+            <li><span class="lang" lang="zh-Hant">歡迎<small>Chinese</small></span></li>
+            <li><span class="lang" lang="es">¡Bienvenidos!<small>Spanish</small></span></li>
+            <li><span class="lang" lang="fa" dir="rtl">خوش آمدید<small>Arabic / Persian</small></span></li>
+          </ul>
+          <p class="welcome-sub">We're a church family drawn from many countries and backgrounds. Wherever you're from and whatever language you dream in, there's a place for you at TBC.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= SERVICE TIMES ================= -->
-    <section class="section" aria-labelledby="times-h">
+    <section class="section bg-sand" aria-labelledby="times-h">
       <div class="wrap">
         <div class="center reveal">
           <span class="eyebrow">Join us on Sundays</span>
-          <h2 id="times-h">There's a service to suit you</h2>
-          <p class="lede narrow">Two gatherings every Sunday, both livestreamed on YouTube. Children and young people are cared for and welcome throughout the morning.</p>
+          <h2 id="times-h">One warm gathering, every Sunday morning</h2>
+          <p class="lede narrow">Modern, informal worship for all ages — and it's livestreamed on YouTube, so you can join from home too. Children and young people are cared for and welcome throughout the morning.</p>
         </div>
 
-        <div class="services mt-3">
+        <div class="services mt-3" style="grid-template-columns:1fr;max-width:760px;margin-inline:auto">
           <div class="service-card reveal">
             <span class="chip chip--clay">Every Sunday</span>
             <p class="service-card__time" style="margin-top:.6rem">10:30am</p>
             <h3>Morning Worship</h3>
-            <p>Modern, informal worship for all ages — come as you are. Little ones and children are looked after so you can relax and settle in.</p>
+            <p>Come as you are — no dress code, no pressure. Little ones and children are looked after so you can relax and settle in. Around an hour and a quarter, with tea and coffee afterwards.</p>
             <ul>
-              <li class="chip">Crèche</li>
-              <li class="chip">JAM — primary</li>
-              <li class="chip">6Up — youth</li>
+              <li class="chip">Crèche — little ones</li>
+              <li class="chip">JAM — primary, up to Year 5</li>
+              <li class="chip">6Up — Year 6 to Year 9</li>
             </ul>
-          </div>
-          <div class="service-card reveal d1">
-            <span class="chip chip--clay">Every Sunday</span>
-            <p class="service-card__time" style="margin-top:.6rem">6:30pm</p>
-            <h3>Evening Worship</h3>
-            <p>A gentler, reflective end to the week. On the 3rd Sunday we share Communion together. All are welcome.</p>
-            <ul>
-              <li class="chip">Reflective</li>
-              <li class="chip">Communion — 3rd Sun</li>
-            </ul>
+            <p class="mt-2 mb-0"><a href="https://www.youtube.com/@ThatchamBaptistChurch/streams" target="_blank" rel="noopener"><strong>Can't make it in person? Watch live on YouTube →</strong></a></p>
           </div>
         </div>
 
         <div class="card mt-3 reveal" style="display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between">
           <div class="infoline">
-            <span><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>Wheelers Green Way, Thatcham, RG19 4YF</span>
+            <span><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>Wheelers Green Way, Thatcham, Berkshire, RG19 4YF</span>
             <span><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 4h3l1.5 4-2 1.4a11 11 0 005 5l1.4-2 4 1.5v3a2 2 0 01-2.2 2A16 16 0 014.6 6.2 2 2 0 016.6 4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>01635 867054</span>
           </div>
           <a class="btn btn--sage" href="visit.html">Get directions &amp; plan your visit</a>
         </div>
+      </div>
+    </section>
+
+    <!-- ================= STRAPLINE ================= -->
+    <section class="section">
+      <div class="wrap strapline reveal">
+        <blockquote>Love God, love our community, <span class="accent">equip one another to be active disciples of Jesus.</span></blockquote>
+        <cite>Our shared calling</cite>
       </div>
     </section>
 
@@ -142,7 +159,7 @@
           </figure>
           <div class="reveal d1">
             <span class="eyebrow">New here?</span>
-            <h2>Here's what to expect</h2>
+            <h2 id="new-h">Here's what to expect</h2>
             <p class="lede">Feeling nervous about a first visit is completely normal — most of us have been there. No dress code, no awkward spotlight, no pressure.</p>
             <ul class="checklist mt-2">
               <li><span class="tick"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><strong>A friendly face on the door</strong>Our welcome team will greet you and help you find your feet.</span></li>
@@ -165,7 +182,7 @@
         </div>
 
         <div class="grid grid--3 mt-3">
-          <a class="card card--link reveal" href="whats-on.html">
+          <a class="card card--link reveal" href="whats-on.html#tuesday">
             <div class="card__icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 8h12v6a4 4 0 01-4 4H8a4 4 0 01-4-4V8zM16 9h2a2 2 0 010 4h-2M6 3v2M10 3v2M14 3v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
             <h3>Coffee Morning</h3>
             <p>Tuesdays 10am–12pm. Our open café — a warm drink, a slice of cake and a friendly natter. All welcome.</p>
@@ -220,7 +237,7 @@
           </figure>
           <div class="reveal d1">
             <span class="eyebrow">Church is the people</span>
-            <h2>We're the people, not the building</h2>
+            <h2 id="people-h">We're the people, not the building</h2>
             <p class="lede">You'll find every stage of life here — from children finding their feet to friends in their 90s with a lifetime of stories. What holds us together isn't a building; it's each other, and the God who welcomes us all.</p>
             <p>We're an ordinary, imperfect, wonderfully mixed bunch — families, singles, students, retirees, the curious and the committed. There's room for you exactly as you are.</p>
             <a class="btn mt-1" href="who-we-are.html">Get to know us</a>
@@ -229,16 +246,8 @@
       </div>
     </section>
 
-    <!-- ================= QUOTE ================= -->
-    <section class="section">
-      <div class="wrap quote reveal">
-        <blockquote>&ldquo;A place where everyone can find life and hope through Jesus.&rdquo;</blockquote>
-        <cite>Our heart for Thatcham</cite>
-      </div>
-    </section>
-
     <!-- ================= OUTREACH ================= -->
-    <section class="section bg-sand" aria-labelledby="out-h">
+    <section class="section" aria-labelledby="out-h">
       <div class="wrap">
         <div class="center reveal">
           <span class="eyebrow">Loving our community</span>
@@ -251,13 +260,44 @@
             <p>A donation basket sits in our foyer all week, and we're a distribution point every Thursday 1–3pm — practical help for neighbours who need it.</p>
           </div>
           <div class="outreach-card reveal d1">
-            <h3>Refugee Support</h3>
+            <h3>West Berkshire Refugee Support</h3>
             <p>We partner with West Berkshire Refugee Support to welcome and stand alongside those who've had to start life again far from home.</p>
           </div>
           <div class="outreach-card reveal d2">
             <h3>Link to Hope Shoeboxes</h3>
             <p>Each year we fill shoeboxes with gifts and essentials for families and elderly people across Eastern Europe. A little box, a big hello.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LATEST NOTICES ================= -->
+    <section class="section bg-sand" aria-labelledby="notices-h">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="eyebrow">Latest notices</span>
+          <h2 id="notices-h">Keeping our church family in the loop</h2>
+          <p class="lede narrow">Our weekly notices will appear here. For now these are sample cards showing how they'll look.</p>
+        </div>
+        <div class="grid grid--3 mt-3">
+          <article class="notice-card reveal">
+            <span class="notice-card__date">Sample notice</span>
+            <h3>Church Family Lunch</h3>
+            <p>Bring-and-share lunch after the morning service on the last Sunday of the month. Everyone welcome — just bring something to add to the table.</p>
+            <span class="more">Placeholder text — replace with a real notice</span>
+          </article>
+          <article class="notice-card reveal d1">
+            <span class="notice-card__date">Sample notice</span>
+            <h3>Alpha starts 16 September</h3>
+            <p>Our next Alpha course begins on Wednesday 16 September. Curious about faith? Come along — coffee at 7:15pm. Speak to David to sign up.</p>
+            <span class="more">Placeholder text — replace with a real notice</span>
+          </article>
+          <article class="notice-card reveal d2">
+            <span class="notice-card__date">Sample notice</span>
+            <h3>Shoebox appeal now open</h3>
+            <p>Link to Hope shoeboxes are being collected again this autumn. Leaflets and empty boxes are available in the foyer — thank you for your generosity.</p>
+            <span class="more">Placeholder text — replace with a real notice</span>
+          </article>
         </div>
       </div>
     </section>
@@ -287,7 +327,7 @@
             <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 5v22M8 13h16" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></span>
             <span><span class="brand__name">Thatcham Baptist</span><span class="brand__sub">Church</span></span>
           </a>
-          <p>An active, welcoming Baptist church in the heart of Thatcham, West Berkshire. Church is the people, not the building.</p>
+          <p>Love God, love our community, equip one another to be active disciples of Jesus.</p>
           <div class="socials">
             <a href="https://www.youtube.com/@ThatchamBaptistChurch" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.4-.4-5a2.6 2.6 0 00-1.8-1.8C19 4.7 12 4.7 12 4.7s-7 0-8.8.5A2.6 2.6 0 001.4 7C1 8.6 1 12 1 12s0 3.4.4 5a2.6 2.6 0 001.8 1.8c1.8.5 8.8.5 8.8.5s7 0 8.8-.5A2.6 2.6 0 0022.6 17c.4-1.6.4-5 .4-5zM9.8 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></a>
             <a href="https://www.facebook.com/thatchambaptist" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0022 12z"/></svg></a>
@@ -310,20 +350,31 @@
           <h4>Sundays</h4>
           <ul>
             <li>10:30am — Morning Worship</li>
-            <li>6:30pm — Evening Worship</li>
+            <li>Crèche, JAM &amp; 6Up for children &amp; youth</li>
             <li><a href="https://www.youtube.com/@ThatchamBaptistChurch/streams" target="_blank" rel="noopener">Watch live on YouTube</a></li>
             <li style="margin-top:.5rem"><a href="visit.html">Plan a visit &rarr;</a></li>
             <li><a href="give.html">Give &rarr;</a></li>
           </ul>
         </div>
+
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="who-we-are.html">Who We Are</a></li>
+            <li><a href="whats-on.html">What's On</a></li>
+            <li><a href="team.html">The Team</a></li>
+            <li><a href="hiring.html">Hiring the Building</a></li>
+            <li><a href="links.html">Our Links</a></li>
+          </ul>
+        </div>
       </div>
 
       <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Thatcham Baptist Church. Connected through ChurchSuite.</span>
+        <span>&copy; <span data-year>2026</span> Thatcham Baptist Church. Connected through <strong>ChurchSuite</strong>.</span>
         <span class="links">
-          <a href="visit.html">Safeguarding</a>
+          <a href="safeguarding.html">Safeguarding</a>
           <a href="#">Privacy</a>
-          <a href="team.html#safeguarding">Contact</a>
+          <a href="visit.html">Contact</a>
         </span>
       </div>
     </div>

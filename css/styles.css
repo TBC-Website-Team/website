@@ -475,7 +475,8 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .site-footer a { color: #F0DEC7; text-decoration: none; }
 .site-footer a:hover { color: #fff; text-decoration: underline; }
 .footer-grid { display: grid; gap: 2rem; grid-template-columns: 1fr; }
-@media (min-width: 720px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+@media (min-width: 620px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 940px) { .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; } }
 .footer-grid h4 { color: #fff; font-size: 1.05rem; margin-bottom: .8rem; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .5rem; }
 .footer-brand .brand__name { color: #fff; }
@@ -507,3 +508,145 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .stack > * + * { margin-top: 1rem; }
 .pill-row { display: flex; flex-wrap: wrap; gap: .6rem; }
 .divider { height: 1px; background: var(--line); border: 0; margin-block: 2rem; }
+
+/* =====================================================================
+   Additions for the full multi-page rebuild
+   ===================================================================== */
+
+/* ---------- Multilingual welcome band ---------- */
+.welcome-band {
+  background: linear-gradient(135deg, var(--clay), var(--clay-dark));
+  color: #fff; border-radius: var(--radius-lg);
+  padding: clamp(2rem, 5vw, 3.4rem); box-shadow: var(--shadow); text-align: center;
+  position: relative; overflow: hidden; isolation: isolate;
+}
+.welcome-band::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(120% 120% at 12% 8%, rgba(255,255,255,.16), transparent 46%),
+              radial-gradient(120% 120% at 90% 96%, rgba(0,0,0,.18), transparent 55%);
+}
+.welcome-band .eyebrow { color: #FBE9D6; }
+.welcome-band h2 { color: #fff; margin-bottom: 1.2rem; }
+.welcome-words {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+  gap: .5rem 1.4rem; margin: 0 auto; max-width: 34ch;
+}
+.welcome-words li { list-style: none; }
+.welcome-words .lang {
+  font-family: var(--font-display), "Noto Sans SC", "Noto Sans Arabic", sans-serif; font-weight: 500;
+  font-size: clamp(1.35rem, 4.4vw, 2.3rem); line-height: 1.1; color: #fff;
+  display: inline-block;
+}
+.welcome-words .lang--lead { color: #FFE7CF; }
+.welcome-words .lang small {
+  display: block; font-family: var(--font-body); font-weight: 600;
+  font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
+  color: #FBD9BF; margin-top: .25rem;
+}
+.welcome-band p.welcome-sub { color: #FBE9D6; max-width: 52ch; margin: 1.4rem auto 0; }
+
+/* ---------- Strapline band ---------- */
+.strapline {
+  text-align: center; max-width: 30ch; margin-inline: auto;
+}
+.strapline blockquote {
+  font-family: var(--font-display); font-weight: 500; margin: 0;
+  font-size: clamp(1.5rem, 4.2vw, 2.4rem); line-height: 1.2; color: var(--ink);
+}
+.strapline blockquote .accent { color: var(--clay-dark); }
+.strapline cite {
+  display: block; margin-top: 1rem; color: var(--ink-soft); font-style: normal;
+  font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: .78rem;
+}
+
+/* ---------- Notices ---------- */
+.notice-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.4rem 1.5rem; box-shadow: var(--shadow-sm); display: flex; flex-direction: column;
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.notice-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.notice-card__date {
+  font-weight: 700; font-size: .76rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--clay); margin-bottom: .5rem;
+}
+.notice-card h3 { font-size: 1.15rem; margin-bottom: .4rem; }
+.notice-card p { color: var(--ink-soft); font-size: .96rem; margin: 0; }
+.notice-card .more { color: var(--clay-dark); font-weight: 700; margin-top: .9rem; font-size: .92rem; }
+
+/* ---------- Frequency markers (weekly vs periodic) ---------- */
+.freq {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-weight: 700; font-size: .72rem; letter-spacing: .04em; text-transform: uppercase;
+  padding: .28rem .7rem; border-radius: var(--radius-pill); white-space: nowrap;
+}
+.freq::before { content: ""; width: .55em; height: .55em; border-radius: 50%; background: currentColor; }
+.freq--weekly   { background: var(--sage-soft); color: #45503a; }
+.freq--periodic { background: #F6E6CD; color: #8a5a1e; }
+.freq-legend { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; align-items: center; margin-bottom: 1.6rem; color: var(--ink-soft); font-size: .9rem; }
+.event-card__meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: .55rem; }
+
+/* ---------- Believe / statement cards ---------- */
+.believe { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
+@media (min-width: 780px) { .believe { grid-template-columns: repeat(3, 1fr); } }
+.believe-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 1.5rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--clay);
+}
+.believe-card:nth-child(2) { border-top-color: var(--honey); }
+.believe-card:nth-child(3) { border-top-color: var(--sage); }
+.believe-card h3 { margin-bottom: .4rem; }
+.believe-card p { color: var(--ink-soft); margin: 0; font-size: .98rem; }
+
+/* ---------- Our Links grid ---------- */
+.links-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 620px) { .links-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 940px) { .links-grid { grid-template-columns: repeat(3, 1fr); } }
+.link-card {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.3rem 1.4rem; box-shadow: var(--shadow-sm);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+.link-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #dcccb2; }
+.link-card h3 { font-size: 1.12rem; margin-bottom: .3rem; display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.link-card h3 svg { width: 18px; height: 18px; color: var(--clay); flex: none; }
+.link-card p { color: var(--ink-soft); font-size: .92rem; margin: 0; }
+
+/* ---------- Safeguarding contact cards ---------- */
+.safeguard { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .safeguard { grid-template-columns: repeat(3, 1fr); } }
+.safeguard-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 1.5rem; box-shadow: var(--shadow-sm);
+}
+.safeguard-card__avatar {
+  width: 76px; height: 76px; border-radius: 50%; overflow: hidden; margin-bottom: 1rem;
+  background: var(--cream-2); box-shadow: var(--shadow-sm);
+}
+.safeguard-card__avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+.safeguard-card .role {
+  font-weight: 700; font-size: .74rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--clay); margin-bottom: .5rem;
+}
+.safeguard-card h3 { font-size: 1.18rem; margin-bottom: .3rem; }
+.safeguard-card a { font-weight: 600; word-break: break-word; }
+
+/* ---------- Definition rows (address / at-a-glance) ---------- */
+.deflist { display: grid; gap: 1rem; margin: 0; }
+.deflist div { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: start; }
+.deflist .ico {
+  width: 40px; height: 40px; border-radius: 12px; flex: none; display: grid; place-items: center;
+  background: var(--clay-soft); color: var(--clay-dark);
+}
+.deflist .ico svg { width: 20px; height: 20px; }
+.deflist dt { font-weight: 700; margin: 0; }
+.deflist dd { margin: 0; color: var(--ink-soft); }
+
+/* ---------- Small helper: notice/aside box ---------- */
+.aside-box {
+  background: var(--sage-soft); border: 1px solid #d3ddc7; border-radius: var(--radius);
+  padding: 1.2rem 1.3rem; color: #45503a;
+}
+.aside-box h3 { font-size: 1.1rem; margin-bottom: .4rem; }
+.aside-box p:last-child { margin-bottom: 0; }
