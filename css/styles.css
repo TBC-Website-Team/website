@@ -598,6 +598,28 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .believe-card h3 { margin-bottom: .4rem; }
 .believe-card p { color: var(--ink-soft); margin: 0; font-size: .98rem; }
 
+/* ---------- Statement of Faith ---------- */
+.statement-panel {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm); padding: clamp(1.4rem, 4vw, 2.8rem);
+  max-width: 840px; margin-inline: auto;
+}
+.statement { list-style: none; counter-reset: sof; margin: 0; padding: 0; }
+.statement li {
+  counter-increment: sof;
+  display: grid; grid-template-columns: auto 1fr; gap: 1rem 1.3rem; align-items: start;
+  padding: 1.5rem 0; border-top: 1px solid var(--line);
+}
+.statement li:first-child { border-top: 0; padding-top: 0; }
+.statement li:last-child { padding-bottom: 0; }
+.statement li::before {
+  content: counter(sof);
+  font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; line-height: 1;
+  color: var(--clay-dark); background: var(--clay-soft);
+  width: 2.6rem; height: 2.6rem; border-radius: 50%; display: grid; place-items: center; flex: none;
+}
+.statement p { margin: 0; font-size: 1.06rem; color: var(--ink); }
+
 /* ---------- Our Links grid ---------- */
 .links-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
 @media (min-width: 620px) { .links-grid { grid-template-columns: 1fr 1fr; } }
