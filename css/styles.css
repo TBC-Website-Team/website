@@ -396,6 +396,11 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
   font-family: var(--font-display); font-weight: 600; font-size: clamp(1.8rem, 6vw, 2.6rem);
   color: rgba(255,255,255,.92);
 }
+.person__photo--anne img {
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
+}
 .person__photo .tagchip {
   position: absolute; bottom: .45rem; left: 50%; transform: translateX(-50%);
   background: rgba(44,39,35,.66); color: #FBF6EE; font-size: .62rem; font-weight: 600;
