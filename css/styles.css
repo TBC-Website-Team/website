@@ -242,6 +242,7 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .ph--slate   { background: linear-gradient(135deg, #8A98A6, #4E5B69); }
 /* Real photo filling a placeholder frame */
 .ph__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 16%; transform: scale(1.05); transform-origin: center center; background: #e7dbc8; z-index: 0; }
+.photo-soft { filter: saturate(.88) brightness(.97) contrast(.98); }
 .alpha-photo .ph__img { transform: none; object-fit: contain; object-position: center center; background: #f7efe6; }
 .ph.has-photo { background: #E7DBC8; }
 .ph.has-photo::after { background: none; }
