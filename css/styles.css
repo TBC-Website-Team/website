@@ -635,6 +635,71 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .link-card h3 svg { width: 18px; height: 18px; color: var(--clay); flex: none; }
 .link-card p { color: var(--ink-soft); font-size: .92rem; margin: 0; }
 
+/* ---------- Safeguarding process steps ---------- */
+.steps { display: grid; gap: 1.3rem; grid-template-columns: 1fr; }
+@media (min-width: 860px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+.step-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 1.7rem; box-shadow: var(--shadow-sm); border-top: 4px solid var(--clay);
+  display: flex; flex-direction: column;
+}
+.step-card__num {
+  display: inline-flex; align-items: center; gap: .55rem; margin-bottom: .7rem;
+  font-weight: 700; font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--clay);
+}
+.step-card__num b {
+  font-family: var(--font-display); font-size: 1.4rem; color: var(--clay-dark); line-height: 1;
+  width: 2.3rem; height: 2.3rem; border-radius: 50%; background: var(--clay-soft);
+  display: grid; place-items: center; flex: none;
+}
+.step-card h3 { margin-bottom: .5rem; }
+.step-card p { color: var(--ink-soft); margin: 0 0 1.1rem; }
+.step-card .keywords { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: auto; }
+.step-card .keywords span {
+  background: var(--sage-soft); color: #45503a; font-weight: 700; font-size: .72rem;
+  letter-spacing: .04em; text-transform: uppercase; padding: .32rem .7rem; border-radius: var(--radius-pill);
+}
+
+/* ---------- Emergency / warning box ---------- */
+.emergency {
+  background: #FCEBCF; border: 1px solid #E8B765; border-left: 6px solid #D8901F;
+  border-radius: var(--radius); padding: 1.5rem 1.7rem; color: #6b4410; box-shadow: var(--shadow-sm);
+}
+.emergency h3 { color: #7a4a0c; display: flex; align-items: center; gap: .6rem; margin-bottom: .6rem; }
+.emergency h3 svg { width: 1.5em; height: 1.5em; color: #D8901F; flex: none; }
+.emergency p { margin: .35rem 0; }
+.emergency p:last-child { margin-bottom: 0; }
+.emergency a { color: #7a4a0c; font-weight: 700; }
+.emergency .num { font-family: var(--font-display); font-weight: 600; font-size: 1.1em; }
+
+/* ---------- External contacts ---------- */
+.ext-contacts { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .ext-contacts { grid-template-columns: 1fr 1fr; } }
+.ext-contacts li {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.1rem 1.3rem; box-shadow: var(--shadow-sm);
+}
+.ext-contacts .who { font-weight: 700; display: block; margin-bottom: .15rem; }
+.ext-contacts .detail { color: var(--ink-soft); font-size: .95rem; }
+
+/* ---------- Policy downloads ---------- */
+.downloads { display: grid; gap: 1rem; grid-template-columns: 1fr; max-width: 720px; margin-inline: auto; }
+@media (min-width: 640px) { .downloads { grid-template-columns: 1fr 1fr; } }
+.download-card {
+  display: flex; align-items: center; gap: 1rem; text-decoration: none; color: inherit;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.2rem 1.4rem; box-shadow: var(--shadow-sm);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+}
+.download-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #dcccb2; }
+.download-card .dl-ico {
+  width: 46px; height: 46px; border-radius: 12px; flex: none; display: grid; place-items: center;
+  background: var(--clay-soft); color: var(--clay-dark);
+}
+.download-card .dl-ico svg { width: 24px; height: 24px; }
+.download-card .dl-title { font-weight: 700; display: block; line-height: 1.25; }
+.download-card .dl-sub { color: var(--ink-soft); font-size: .85rem; }
+
 /* ---------- Safeguarding contact cards ---------- */
 .safeguard { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
 @media (min-width: 720px) { .safeguard { grid-template-columns: repeat(3, 1fr); } }
