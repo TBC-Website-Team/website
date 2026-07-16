@@ -135,32 +135,15 @@
           <p class="lede">You're very welcome to just turn up. But if you'd like us to look out for you — or you have a question — send us a message and we'll be in touch.</p>
         </div>
 
-        <form class="mt-3 reveal" data-demo novalidate>
-          <p class="form-note">This is a visual demo form — it isn't connected to anything yet. On the live site it would email the welcome team (or link to a ChurchSuite form).</p>
-          <div class="form-grid">
-            <div class="field">
-              <label for="name">Your name</label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="First and last name" />
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
-            </div>
-            <div class="field col-2">
-              <label for="when">Which Sunday are you hoping to visit?</label>
-              <input id="when" name="when" type="text" placeholder="e.g. this Sunday, or a date" />
-            </div>
-            <div class="field col-2">
-              <label for="message">Anything we can help with?</label>
-              <textarea id="message" name="message" placeholder="Coming with children, need step-free access, a question about faith — whatever's on your mind."></textarea>
-            </div>
-          </div>
-          <div style="margin-top:1.4rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
-            <button class="btn btn--lg" type="submit">Send message</button>
-            <span style="color:var(--ink-soft);font-size:.9rem">Or call us on <a href="tel:+441635867054">01635 867054</a></span>
-          </div>
-          <p class="form-result form-note" role="status" hidden style="margin-top:1.2rem;background:var(--clay-soft);border-color:var(--clay);color:var(--clay-dark)"></p>
-        </form>
+        <div class="mt-3 reveal" style="position: relative; overflow: hidden; width: 100%; border-radius: var(--radius); border: 1px solid var(--line); background: var(--card); box-shadow: var(--shadow-sm);">
+          <iframe 
+            src="https://thatchambaptist.churchsuite.com/embed/addressbook/form" 
+            title="Thatcham Baptist Church Connection Form" 
+            style="width: 100%; height: 1550px; border: 0; display: block; overflow: hidden;"
+            scrolling="no"
+            loading="lazy">
+          </iframe>
+        </div>
       </div>
     </section>
 
