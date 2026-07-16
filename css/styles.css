@@ -340,6 +340,7 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
   margin-bottom: .3rem; font-weight: 600;
 }
 .service-card ul { margin: .8rem 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; }
+.service-card > .chip + h3 { margin-top: 1rem; }
 .chip {
   display: inline-flex; align-items: center; gap: .35rem;
   background: var(--sage-soft); color: #45503a; font-weight: 600; font-size: .84rem;
@@ -348,9 +349,13 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .chip--clay { background: var(--clay-soft); color: var(--clay-dark); }
 
 /* Info strip (address / phone / live) */
-.infoline { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; align-items: center; color: var(--ink-soft); font-weight: 600; }
-.infoline span { display: inline-flex; align-items: center; gap: .45rem; }
-.infoline svg { width: 1.15em; height: 1.15em; color: var(--clay); }
+.infoline { display: grid; gap: .75rem 1.5rem; align-items: start; color: var(--ink-soft); font-weight: 600; grid-template-columns: 1fr; }
+.infoline span { display: inline-flex; align-items: flex-start; gap: .45rem; }
+.infoline svg { width: 1.15em; height: 1.15em; color: var(--clay); margin-top: .1rem; }
+.infoline .address-lines { display: grid; gap: .15rem; }
+.infoline .address-lines span { display: block; line-height: 1.4; }
+.service-info-card { max-width: 760px; margin-inline: auto; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; }
+@media (min-width: 640px) { .service-info-card { grid-template-columns: minmax(0, 1fr) auto; } }
 
 /* ---------- What's On schedule ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
