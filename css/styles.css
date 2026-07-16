@@ -591,6 +591,42 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .notice-card p { color: var(--ink-soft); font-size: .96rem; margin: 0; }
 .notice-card .more { color: var(--clay-dark); font-weight: 700; margin-top: .9rem; font-size: .92rem; }
 
+/* Featured notice — full-width hero-style card for key announcements */
+.notice-card--featured {
+  background: linear-gradient(135deg, var(--clay-soft) 0%, var(--card) 100%);
+  border: 2px solid var(--clay);
+  border-left: 5px solid var(--clay);
+  position: relative;
+  overflow: hidden;
+}
+.notice-card--featured::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 180px; height: 180px;
+  background: radial-gradient(circle, rgba(193,91,51,.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+.notice-card--featured h3 {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--clay-dark);
+}
+.notice-card--featured p {
+  font-size: 1.02rem;
+  color: var(--ink);
+  max-width: 56ch;
+}
+.notice-card--featured .notice-card__date {
+  color: var(--clay);
+  font-size: .82rem;
+  letter-spacing: .1em;
+}
+.notice-card--featured:hover {
+  border-color: var(--clay-dark);
+  box-shadow: 0 10px 30px rgba(193,91,51,.15);
+}
+
 /* ---------- Frequency markers (weekly vs periodic) ---------- */
 .freq {
   display: inline-flex; align-items: center; gap: .4rem;
