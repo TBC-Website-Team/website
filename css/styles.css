@@ -268,6 +268,8 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
   background: linear-gradient(180deg, rgba(30,22,16,.10) 0%, rgba(30,22,16,.04) 40%, rgba(24,17,11,.28) 100%),
               radial-gradient(120% 90% at 15% 10%, rgba(255,255,255,.06), transparent 50%);
 }
+/* Position the hero photo slightly higher for better composition */
+.hero__media .ph__img { object-position: center 18% !important; }
 .hero__inner {
   position: relative; z-index: 2;
   min-height: min(86vh, 720px);
@@ -356,6 +358,9 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .infoline .address-lines span { display: block; line-height: 1.4; }
 .service-info-card { max-width: 760px; margin-inline: auto; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; }
 @media (min-width: 640px) { .service-info-card { grid-template-columns: minmax(0, 1fr) auto; } }
+
+/* Defensive: ensure address lines always stack correctly (override caching/older CSS) */
+.service-info-card .address-lines span { display: block !important; }
 
 /* ---------- What's On schedule ---------- */
 .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
