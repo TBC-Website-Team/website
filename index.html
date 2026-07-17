@@ -20,6 +20,24 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- ================= URGENT NOTICE ================= -->
+  <div id="alert-banner" class="alert-banner" role="alert">
+    <div class="alert-banner__inner">
+      <span class="alert-banner__badge">Notice</span>
+      <span class="alert-banner__title">Sunday 19 July: The Church is meeting away today</span>
+      <span class="alert-banner__text">Please join us on Sunday 26 July at 10.30am</span>
+    </div>
+  </div>
+  <script>
+    (function() {
+      var expiry = new Date(2026, 6, 20, 0, 0, 0); // July 20, 2026 00:00 (Month 6 is July)
+      if (new Date() >= expiry) {
+        var banner = document.getElementById('alert-banner');
+        if (banner) banner.style.display = 'none';
+      }
+    })();
+  </script>
+
   <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="wrap site-header__inner">
