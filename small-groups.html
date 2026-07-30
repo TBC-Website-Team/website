@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Our Links — Thatcham Baptist Church</title>
-  <meta name="description" content="The wider family we're part of — our Baptist denomination, local churches, and the partner organisations and charities we support and work with." />
+  <title>Small Groups — Thatcham Baptist Church</title>
+  <meta name="description" content="Small groups at Thatcham Baptist Church — a handful of people meeting midweek in homes, the church café or online to read the Bible, pray and support each other. Find a group that fits you." />
   <meta name="theme-color" content="#FBF6EE" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,7 +25,7 @@
         <a href="index.html">Home</a>
         <a href="who-we-are.html">Who We Are</a>
         <a href="whats-on.html">What's On</a>
-        <a href="small-groups.html">Small Groups</a>
+        <a href="small-groups.html" aria-current="page">Small Groups</a>
         <a href="team.html">The Team</a>
         <a href="visit.html">Visit</a>
         <a href="give.html">Give</a>
@@ -43,7 +43,7 @@
       <a href="index.html">Home</a>
       <a href="who-we-are.html">Who We Are</a>
       <a href="whats-on.html">What's On</a>
-        <a href="small-groups.html">Small Groups</a>
+      <a href="small-groups.html" aria-current="page">Small Groups</a>
       <a href="team.html">The Team</a>
       <a href="visit.html">Visit</a>
       <a href="give.html">Give</a>
@@ -57,71 +57,48 @@
   <main id="main">
     <section class="pagehero">
       <div class="wrap">
-        <span class="eyebrow reveal">Our links</span>
-        <h1 class="reveal d1">The wider family we belong to</h1>
-        <p class="lede reveal d2">We're part of something much bigger than ourselves — a denomination, a town full of churches, and a network of charities and partners we love to support.</p>
+        <span class="eyebrow reveal">Life in a smaller circle</span>
+        <h1 class="reveal d1">Small Groups</h1>
+        <p class="lede reveal d2">Small groups are where church life happens midweek — a handful of people meeting in homes, the church café, or online to read the Bible, pray, and support each other. There's a group for all sorts of people and times. Find one that fits, or email <a href="mailto:smallgroups@thatchambaptist.org.uk">smallgroups@thatchambaptist.org.uk</a> and we'll help you find the right one.</p>
       </div>
     </section>
 
-    <!-- DENOMINATION & LOCAL -->
-    <section class="section" aria-labelledby="denom-h">
+    <section class="section">
       <div class="wrap">
-        <div class="center reveal">
-          <span class="eyebrow">Denomination &amp; local churches</span>
-          <h2 id="denom-h">Who we're connected with</h2>
+        <!-- Day filter — built from the feed once groups load -->
+        <div class="filters" id="sg-filters" hidden></div>
+
+        <!-- Live region for loading / error / empty states -->
+        <div id="sg-status" class="sg-status" aria-live="polite">
+          <div class="sg-loading">
+            <span class="sg-spinner" aria-hidden="true"></span>
+            <p>Loading our groups…</p>
+          </div>
+          <noscript>
+            <div class="sg-fallback">
+              <p>Our live groups list needs JavaScript to load. Please email
+                <a href="mailto:smallgroups@thatchambaptist.org.uk">smallgroups@thatchambaptist.org.uk</a>
+                and we'll tell you about groups that might suit you.</p>
+            </div>
+          </noscript>
         </div>
-        <div class="links-grid mt-3">
-          <a class="link-card reveal" href="https://www.baptist.org.uk" target="_blank" rel="noopener">
-            <h3>Baptists Together <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>The Baptist Union of Great Britain — the national family of Baptist churches we're part of.</p>
-          </a>
-          <a class="link-card reveal d1" href="https://www.scba.org.uk" target="_blank" rel="noopener">
-            <h3>Southern Counties Baptist Association <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>Our regional Baptist association, supporting churches across the southern counties.</p>
-          </a>
-          <a class="link-card reveal d2" href="#">
-            <h3>Churches Together in Thatcham <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>The churches of Thatcham working and worshipping together as one community. <em>(Link to be confirmed.)</em></p>
-          </a>
+
+        <!-- Cards render here -->
+        <div id="sg-app">
+          <div class="sg-grid" id="sg-grid"></div>
         </div>
       </div>
     </section>
 
-    <!-- PARTNERS & CHARITIES -->
-    <section class="section bg-sand" aria-labelledby="partners-h">
+    <section class="section bg-sage">
       <div class="wrap">
-        <div class="center reveal">
-          <span class="eyebrow">Partners &amp; charities</span>
-          <h2 id="partners-h">Causes close to our hearts</h2>
-          <p class="lede narrow">Organisations we support, partner with or point people towards.</p>
+        <div class="callout callout--sage reveal center">
+          <h2>Not sure which group is for you?</h2>
+          <p>Tell us a little about yourself and when you're free — we'll help you find one that fits.</p>
+          <div class="pill-row" style="justify-content:center;margin-top:1.2rem">
+            <a class="btn btn--light btn--lg" href="mailto:smallgroups@thatchambaptist.org.uk">Email the Small Groups team</a>
+          </div>
         </div>
-        <div class="links-grid mt-3">
-          <a class="link-card reveal" href="https://capuk.org" target="_blank" rel="noopener">
-            <h3>CAP <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>Christians Against Poverty — free debt help and money courses, releasing people from poverty's grip.</p>
-          </a>
-          <a class="link-card reveal d1" href="https://www.missiondirect.org" target="_blank" rel="noopener">
-            <h3>Mission Direct <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>Short-term mission teams building homes, schools and hope alongside local communities overseas.</p>
-          </a>
-          <a class="link-card reveal d2" href="https://www.samaritans-purse.org.uk/what-we-do/operation-christmas-child/" target="_blank" rel="noopener">
-            <h3>Operation Christmas Child <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>Shoebox gifts bringing joy to children in need around the world, through Samaritan's Purse.</p>
-          </a>
-          <a class="link-card reveal" href="https://www.linktohope.co.uk" target="_blank" rel="noopener">
-            <h3>Link to Hope <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>Shoebox appeals and long-term support for families and elderly people in Eastern Europe.</p>
-          </a>
-          <a class="link-card reveal d1" href="https://www.eauk.org" target="_blank" rel="noopener">
-            <h3>Evangelical Alliance <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>Uniting evangelical Christians across the UK to serve and speak up for the good of all.</p>
-          </a>
-          <a class="link-card reveal d2" href="https://www.freedominchrist.org.uk" target="_blank" rel="noopener">
-            <h3>Freedom in Christ <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></h3>
-            <p>Discipleship courses and resources helping Christians become fruitful, freed-up followers of Jesus.</p>
-          </a>
-        </div>
-        <p class="center mt-3" style="font-size:.86rem;color:var(--ink-soft)">External links open in a new tab. Please confirm each destination before going live.</p>
       </div>
     </section>
   </main>
@@ -191,5 +168,6 @@
   </nav>
 
   <script src="js/main.js"></script>
+  <script src="js/small-groups.js"></script>
 </body>
 </html>

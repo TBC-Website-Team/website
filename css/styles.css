@@ -627,6 +627,43 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
   box-shadow: 0 10px 30px rgba(193,91,51,.15);
 }
 
+/* "New" highlight — sage-tinted variant so it reads as distinct from the clay featured card.
+   Used for the time-limited Sunday Night Service trial. Remove the card to retire it. */
+.notice-card--new {
+  background: linear-gradient(135deg, var(--sage-soft) 0%, var(--card) 100%);
+  border: 2px solid var(--sage);
+  border-left: 5px solid var(--sage);
+}
+.notice-card--new::before { background: radial-gradient(circle, rgba(124,138,107,.12) 0%, transparent 70%); }
+.notice-card--new h3 { color: #4a5740; }
+.notice-card--new .notice-card__date { color: #5f6e4c; }
+.notice-card--new:hover {
+  border-color: #6a785b;
+  box-shadow: 0 10px 30px rgba(124,138,107,.18);
+}
+.notice-card__badge {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: .35rem;
+  background: var(--sage); color: #fff;
+  font-weight: 800; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem .7rem; border-radius: var(--radius-pill); margin-bottom: .7rem;
+}
+
+/* ---------- Responsive video embed (YouTube etc.) ---------- */
+.video-embed { max-width: 720px; margin: 1.6rem auto 0; }
+.video-embed__frame {
+  position: relative; width: 100%; aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow); background: #000;
+}
+.video-embed__frame iframe {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+}
+.video-embed figcaption {
+  margin-top: .7rem; text-align: center; color: var(--ink-soft);
+  font-size: .92rem; font-weight: 600;
+}
+
 /* ---------- Frequency markers (weekly vs periodic) ---------- */
 .freq {
   display: inline-flex; align-items: center; gap: .4rem;
@@ -849,3 +886,91 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
   }
 }
 
+
+/* =====================================================================
+   Small Groups page — cards rendered from the ChurchSuite JSON feed.
+   We render in the site's own design (no ChurchSuite iframe/styling).
+   ===================================================================== */
+.sg-status { margin: 0 auto; max-width: 42ch; text-align: center; }
+
+/* Loading state */
+.sg-loading { display: flex; flex-direction: column; align-items: center; gap: 1rem; padding-block: 2.5rem; color: var(--ink-soft); }
+.sg-spinner {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 3px solid var(--line); border-top-color: var(--clay);
+  animation: sg-spin .8s linear infinite;
+}
+@keyframes sg-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .sg-spinner { animation-duration: 2s; } }
+
+/* Error / empty fallback */
+.sg-fallback {
+  max-width: 640px; margin: 0 auto; text-align: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 2rem 1.8rem; box-shadow: var(--shadow-sm);
+}
+.sg-fallback svg { width: 40px; height: 40px; color: var(--clay); margin: 0 auto .6rem; }
+.sg-fallback p { color: var(--ink-soft); margin: 0; }
+.sg-fallback a { font-weight: 700; }
+
+/* Grid */
+.sg-grid { display: grid; gap: 1.4rem; grid-template-columns: 1fr; }
+@media (min-width: 620px) { .sg-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .sg-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* Card */
+.sg-card {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.sg-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: #dcccb2; }
+
+/* Media / thumbnail */
+.sg-card__media { position: relative; aspect-ratio: 16 / 9; background: var(--cream-2); overflow: hidden; }
+.sg-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.sg-card__ph {
+  width: 100%; height: 100%; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--clay-soft) 0%, var(--sage-soft) 100%);
+  font-family: var(--font-display); font-weight: 600; font-size: 2.6rem; color: var(--clay-dark);
+}
+
+/* Status badge (overlaid on media) */
+.sg-badge {
+  position: absolute; left: .8rem; top: .8rem;
+  display: inline-flex; align-items: center; gap: .35rem;
+  font-weight: 700; font-size: .74rem; letter-spacing: .02em;
+  padding: .32rem .7rem; border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm); backdrop-filter: saturate(1.2);
+}
+.sg-badge::before { content: ""; width: .5em; height: .5em; border-radius: 50%; background: currentColor; }
+.sg-badge--open { background: var(--sage); color: #fff; }
+.sg-badge--full { background: #EFE7DA; color: #7a6f60; }
+
+/* Body */
+.sg-card__body { display: flex; flex-direction: column; gap: .55rem; padding: 1.3rem 1.4rem 1.5rem; flex: 1; }
+.sg-card__name { margin: 0; font-size: 1.25rem; }
+.sg-card__meta { display: flex; flex-direction: column; gap: .3rem; margin: 0; color: var(--ink-soft); font-weight: 600; font-size: .92rem; }
+.sg-card__meta span { display: inline-flex; align-items: flex-start; gap: .45rem; }
+.sg-card__meta svg { width: 1.05em; height: 1.05em; color: var(--clay); flex: none; margin-top: .18rem; }
+
+/* Description (sanitised ChurchSuite HTML) */
+.sg-card__desc { color: var(--ink-soft); font-size: .96rem; margin-top: .1rem; }
+.sg-card__desc p { margin: 0 0 .6rem; }
+.sg-card__desc p:last-child { margin-bottom: 0; }
+.sg-card__desc a { color: var(--clay-dark); font-weight: 600; word-break: break-word; }
+.sg-card__desc.is-clamped {
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+.sg-readmore {
+  align-self: flex-start; margin-top: .2rem;
+  background: none; border: 0; padding: 0; cursor: pointer;
+  color: var(--clay-dark); font-family: var(--font-body); font-weight: 700; font-size: .9rem;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.sg-readmore:hover { color: var(--clay); }
+
+/* Members count (subtle, pushed to card foot) */
+.sg-card__foot { margin-top: auto; padding-top: .4rem; color: var(--ink-soft); font-size: .84rem; font-weight: 600; }
