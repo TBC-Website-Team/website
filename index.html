@@ -430,8 +430,34 @@
       </div>
     </section>
 
+    <!-- ================= LIVE: WHAT'S COMING UP (ChurchSuite calendar feed) ================= -->
+    <section class="section" id="coming-up" aria-labelledby="coming-up-h">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="eyebrow">On the calendar</span>
+          <h2 id="coming-up-h">What's coming up</h2>
+          <p class="lede narrow">Special events and dates for your diary, straight from our church calendar.</p>
+        </div>
+
+        <div id="evh-status" class="sg-status mt-3" aria-live="polite">
+          <div class="sg-loading">
+            <span class="sg-spinner" aria-hidden="true"></span>
+            <p>Loading upcoming events…</p>
+          </div>
+        </div>
+
+        <div id="ev-home">
+          <div class="sg-grid mt-3" id="evh-grid"></div>
+        </div>
+
+        <div class="center mt-3 reveal">
+          <a class="btn btn--ghost" href="whats-on.html#events">See all events</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= CTA BAND ================= -->
-    <section class="section">
+    <section class="section bg-sand">
       <div class="wrap">
         <div class="callout reveal">
           <span class="eyebrow" style="color:#FBE9D6">Come and see</span>
@@ -551,6 +577,8 @@
   </nav>
 
   <script src="js/main.js"></script>
+  <script src="js/feed-common.js"></script>
+  <script src="js/events.js"></script>
 </body>
 
 </html>

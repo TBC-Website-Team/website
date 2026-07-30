@@ -70,49 +70,10 @@
   }
 
   /* ---------- HTML sanitiser ----------
-     ChurchSuite descriptions contain HTML (<br>, links). We render it as HTML
-     so line breaks and mailto links work, but rebuild it from a strict
-     allow-list so nothing hostile (scripts, event handlers, iframes) survives. */
-  var ALLOWED_TAGS = { A: 1, BR: 1, P: 1, EM: 1, STRONG: 1, B: 1, I: 1, U: 1, UL: 1, OL: 1, LI: 1, SPAN: 1, DIV: 1 };
-  var DROP_TAGS = { SCRIPT: 1, STYLE: 1, IFRAME: 1, OBJECT: 1, EMBED: 1, LINK: 1, META: 1, HEAD: 1, SVG: 1, IMG: 1 };
-
-  function cloneClean(src, dest) {
-    var nodes = src.childNodes;
-    for (var i = 0; i < nodes.length; i++) {
-      var node = nodes[i];
-      if (node.nodeType === 3) {
-        dest.appendChild(document.createTextNode(node.nodeValue));
-      } else if (node.nodeType === 1) {
-        var tag = node.tagName;
-        if (DROP_TAGS[tag]) continue; // skip entirely, contents included
-        if (ALLOWED_TAGS[tag]) {
-          var el = document.createElement(tag.toLowerCase());
-          if (tag === "A") {
-            var href = node.getAttribute("href") || "";
-            if (/^(https?:|mailto:)/i.test(href)) {
-              el.setAttribute("href", href);
-              if (/^https?:/i.test(href)) {
-                el.setAttribute("target", "_blank");
-                el.setAttribute("rel", "noopener noreferrer");
-              }
-            }
-          }
-          cloneClean(node, el);
-          dest.appendChild(el);
-        } else {
-          cloneClean(node, dest); // unknown tag: unwrap, keep children
-        }
-      }
-    }
-  }
-
-  function sanitize(html) {
-    var frag = document.createDocumentFragment();
-    if (!html) return frag;
-    var doc = new DOMParser().parseFromString(String(html), "text/html");
-    cloneClean(doc.body, frag);
-    return frag;
-  }
+     Shared with the events feed — the allow-list sanitiser now lives in
+     js/feed-common.js (window.TBCFeed) so both pages use one implementation. */
+  var sanitize = (window.TBCFeed && window.TBCFeed.sanitize) ||
+    function () { return document.createDocumentFragment(); };
 
   /* ---------- Icons (match the site's stroke style) ---------- */
   function icon(kind) {

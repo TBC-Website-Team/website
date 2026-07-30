@@ -421,6 +421,9 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .person__name { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; margin: 0; }
 .person__role { color: var(--clay-dark); font-weight: 700; font-size: .86rem; margin: .1rem 0 .3rem; }
 .person__bio  { color: var(--ink-soft); font-size: .9rem; margin: 0; }
+.person__contact { margin: .7rem 0 0; }
+.person__contact a { display: inline-flex; align-items: center; gap: .45rem; font-weight: 700; font-size: .92rem; }
+.person__contact svg { width: 1.1em; height: 1.1em; flex: none; }
 .lead-team { display: grid; gap: 1.4rem; grid-template-columns: 1fr; margin-bottom: 3rem; }
 @media (min-width: 720px) { .lead-team { grid-template-columns: 1fr 1fr; } }
 .lead-card { display: grid; grid-template-columns: 110px 1fr; gap: 1.2rem; align-items: center;
@@ -974,3 +977,18 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 
 /* Members count (subtle, pushed to card foot) */
 .sg-card__foot { margin-top: auto; padding-top: .4rem; color: var(--ink-soft); font-size: .84rem; font-weight: 600; }
+
+/* ---------- Live events (What's On + homepage "coming up") ----------
+   Reuses the .sg-card / .sg-grid system from the Small Groups page. */
+.ev-when {
+  display: inline-flex; align-items: center; gap: .45rem;
+  margin: 0; color: var(--clay-dark); font-weight: 700;
+  font-size: .82rem; letter-spacing: .02em; text-transform: uppercase;
+}
+.ev-when svg { width: 1.05em; height: 1.05em; flex: none; }
+.sg-card__cta { margin-top: auto; padding-top: .9rem; }
+.btn--sm { padding: .55rem 1.15rem; font-size: .92rem; }
+.sg-empty {
+  text-align: center; color: var(--ink-soft); max-width: 46ch;
+  margin: 1rem auto 0; font-weight: 500;
+}

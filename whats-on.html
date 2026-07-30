@@ -63,9 +63,50 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- ================= LIVE: SPECIAL EVENTS (ChurchSuite calendar feed) ================= -->
+    <section class="section" id="events" aria-labelledby="events-h">
       <div class="wrap">
-        <div class="freq-legend reveal">
+        <div class="center reveal">
+          <span class="eyebrow">Dates for your diary</span>
+          <h2 id="events-h">Special events coming up</h2>
+          <p class="lede narrow">Alongside our regular weekly rhythm below, here are the one-off and seasonal events on our church calendar — updated live. Tap through to book a place or find out more.</p>
+        </div>
+
+        <!-- Live region for loading / error / empty states -->
+        <div id="ev-status" class="sg-status mt-3" aria-live="polite">
+          <div class="sg-loading">
+            <span class="sg-spinner" aria-hidden="true"></span>
+            <p>Loading upcoming events…</p>
+          </div>
+          <noscript>
+            <div class="sg-fallback">
+              <p>Our live events calendar needs JavaScript to load. Please email
+                <a href="mailto:office@thatchambaptist.org.uk">office@thatchambaptist.org.uk</a>
+                or see our weekly rhythm below.</p>
+            </div>
+          </noscript>
+        </div>
+
+        <div id="ev-whatson">
+          <div class="sg-grid mt-3" id="ev-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HAND-BUILT WEEKLY RHYTHM =================
+         Kept deliberately: the calendar feed above only carries Sunday
+         services, Prayer Breakfast and occasional specials. The midweek
+         groups below (Coffee Morning, Toddlers, Youth, Foodbank, etc.) are
+         not in the feed, so this is our source of truth for the weekly rhythm. -->
+    <section class="section" aria-labelledby="rhythm-h">
+      <div class="wrap">
+        <div class="center reveal">
+          <span class="eyebrow">Every week at TBC</span>
+          <h2 id="rhythm-h">Our regular weekly rhythm</h2>
+          <p class="lede narrow">The gatherings that run week in, week out. Drop in to whatever takes your interest — everyone's welcome.</p>
+        </div>
+
+        <div class="freq-legend reveal mt-3">
           <span class="freq freq--weekly">Weekly</span> <span>Happens every week</span>
           <span class="freq freq--periodic" style="margin-left:.6rem">Monthly / periodic</span> <span>Runs on set dates — check the note</span>
         </div>
@@ -347,5 +388,7 @@
   </nav>
 
   <script src="js/main.js"></script>
+  <script src="js/feed-common.js"></script>
+  <script src="js/events.js"></script>
 </body>
 </html>
