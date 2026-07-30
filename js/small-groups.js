@@ -75,13 +75,10 @@
   var sanitize = (window.TBCFeed && window.TBCFeed.sanitize) ||
     function () { return document.createDocumentFragment(); };
 
-  /* ---------- Icons (match the site's stroke style) ---------- */
-  function icon(kind) {
-    if (kind === "cal") {
-      return '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M4 9h16M8 3v3M16 3v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
-    }
-    return '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-5.7-7-11a7 7 0 1114 0c0 5.3-7 11-7 11z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>';
-  }
+  /* ---------- Icons ----------
+     Shared with the events feed via js/feed-common.js. The SVGs carry intrinsic
+     width/height there so they never balloon if the stylesheet is slow/stale. */
+  var icon = (window.TBCFeed && window.TBCFeed.icon) || function () { return ""; };
 
   /* ---------- Card builder ---------- */
   function buildCard(group) {
@@ -166,6 +163,23 @@
       body.appendChild(foot);
     }
 
+    // Sign-up button — data-driven: only groups open to new members get one.
+    // Links to the group's public ChurchSuite signup page. Groups that aren't
+    // taking members fall back to the "email smallgroups@…" link already in
+    // their description, so nothing extra is added for them.
+    if (open && group.identifier) {
+      var cta = document.createElement("div");
+      cta.className = "sg-card__cta";
+      var a = document.createElement("a");
+      a.className = "btn btn--sm";
+      a.href = "https://thatchambaptist.churchsuite.com/groups/" + encodeURIComponent(group.identifier);
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = "Sign up";
+      cta.appendChild(a);
+      body.appendChild(cta);
+    }
+
     card.appendChild(body);
     return card;
   }
@@ -236,7 +250,7 @@
     var box = document.createElement("div");
     box.className = "sg-fallback";
     box.innerHTML =
-      '<svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H7l-3 3V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+      '<svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H7l-3 3V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
 
     var p = document.createElement("p");
     p.appendChild(document.createTextNode(message + " "));

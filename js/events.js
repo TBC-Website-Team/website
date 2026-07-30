@@ -233,7 +233,7 @@
     var box = document.createElement("div");
     box.className = "sg-fallback";
     box.innerHTML =
-      '<svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H7l-3 3V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
+      '<svg width="40" height="40" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H7l-3 3V4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>';
     var p = document.createElement("p");
     p.appendChild(
       document.createTextNode(
