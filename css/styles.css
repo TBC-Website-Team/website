@@ -396,13 +396,20 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 }
 
 /* ---------- Team ---------- */
-.team-grid { display: grid; gap: 1.3rem; grid-template-columns: repeat(2, 1fr); }
-@media (min-width: 720px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 980px) { .team-grid { grid-template-columns: repeat(4, 1fr); } }
-.person { text-align: center; }
+/* Unified leadership grid — one card format for the whole team.
+   Cards in a row stretch to equal height; bios of any length flow gracefully. */
+.team-grid { display: grid; gap: 1.4rem; grid-template-columns: 1fr; align-items: stretch; }
+@media (min-width: 560px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+.person {
+  display: flex; flex-direction: column; text-align: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
+  padding: 1.4rem; box-shadow: var(--shadow-sm);
+}
 .person__photo {
-  aspect-ratio: 1/1; border-radius: var(--radius-lg); position: relative; overflow: hidden;
-  display: grid; place-items: center; margin-bottom: .8rem; box-shadow: var(--shadow-sm);
+  aspect-ratio: 1/1; width: 100%; max-width: 210px; margin: 0 auto 1rem;
+  border-radius: var(--radius-lg); position: relative; overflow: hidden;
+  display: grid; place-items: center; box-shadow: var(--shadow-sm);
 }
 .person__photo .initials {
   font-family: var(--font-display); font-weight: 600; font-size: clamp(1.8rem, 6vw, 2.6rem);
@@ -421,15 +428,10 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .person__name { font-family: var(--font-display); font-weight: 600; font-size: 1.12rem; margin: 0; }
 .person__role { color: var(--clay-dark); font-weight: 700; font-size: .86rem; margin: .1rem 0 .3rem; }
 .person__bio  { color: var(--ink-soft); font-size: .9rem; margin: 0; }
-.person__contact { margin: .7rem 0 0; }
+/* Email link sits at the foot of the card so buttons line up across a row. */
+.person__contact { margin: auto auto 0; padding-top: .9rem; }
 .person__contact a { display: inline-flex; align-items: center; gap: .45rem; font-weight: 700; font-size: .92rem; }
 .person__contact svg { width: 1.1em; height: 1.1em; flex: none; }
-.lead-team { display: grid; gap: 1.4rem; grid-template-columns: 1fr; margin-bottom: 3rem; }
-@media (min-width: 720px) { .lead-team { grid-template-columns: 1fr 1fr; } }
-.lead-card { display: grid; grid-template-columns: 110px 1fr; gap: 1.2rem; align-items: center;
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.3rem; box-shadow: var(--shadow-sm); }
-.lead-card .person__photo { margin: 0; }
-@media (min-width: 500px) { .lead-card { grid-template-columns: 130px 1fr; } }
 
 /* Photo gradient variants (cycled) */
 .g1{background:linear-gradient(135deg,#E3A34A,#C15B33)} .g2{background:linear-gradient(135deg,#9CAE84,#5F6E4C)}
