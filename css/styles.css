@@ -464,6 +464,8 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .outreach-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem; box-shadow: var(--shadow-sm); }
 .outreach-card h3 { font-size: 1.15rem; }
 .outreach-card p { color: var(--ink-soft); font-size: .95rem; margin: 0; }
+.outreach-card .more { color: var(--clay-dark); font-weight: 700; font-size: .92rem; display: inline-flex; align-items: center; gap: .3rem; margin-top: .9rem; }
+.outreach-card .more:hover { gap: .55rem; }
 
 /* ---------- Form (visual only) ---------- */
 .form-note {
@@ -832,6 +834,19 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 }
 .aside-box h3 { font-size: 1.1rem; margin-bottom: .4rem; }
 .aside-box p:last-child { margin-bottom: 0; }
+
+/* ---------- Give page ---------- */
+.give-primary { border: 2px solid var(--clay); border-left: 5px solid var(--clay); }
+.give-primary > .chip { margin-bottom: .8rem; }
+.bank-details {
+  display: grid; gap: .55rem; margin: 1.1rem 0; padding: 1.1rem 1.25rem;
+  background: var(--cream-2); border-radius: var(--radius);
+}
+.bank-details > div { display: grid; grid-template-columns: 11rem 1fr; gap: .1rem .9rem; align-items: baseline; }
+@media (max-width: 460px) { .bank-details > div { grid-template-columns: 1fr; } }
+.bank-details dt { color: var(--ink-soft); font-weight: 600; font-size: .92rem; }
+.bank-details dd { margin: 0; font-weight: 700; font-size: 1.05rem; letter-spacing: .01em; }
+.give-note { font-size: .86rem; color: var(--ink-soft); margin: .6rem 0 0; }
 
 /* ---------- Alert/Notice Banner ---------- */
 .alert-banner {
