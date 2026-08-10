@@ -91,6 +91,10 @@ p  { margin: 0 0 1rem; text-wrap: pretty; -webkit-text-wrap: pretty; }
   margin-bottom: .9rem;
 }
 .lede { font-size: clamp(1.1rem, 2.2vw, 1.28rem); color: var(--ink-soft); }
+.desktop-break br { display: none; }
+@media (min-width: 940px) {
+  .desktop-break br { display: inline; }
+}
 .skip-link {
   position: absolute; left: -999px; top: .5rem; z-index: 200;
   background: var(--ink); color: #fff; padding: .7rem 1.1rem; border-radius: 10px;
@@ -460,7 +464,10 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 
 /* ---------- Community strip ---------- */
 .outreach { display: grid; gap: 1.2rem; grid-template-columns: 1fr; }
-@media (min-width: 720px) { .outreach { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 720px) {
+  .outreach { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+  .outreach-card { max-width: 360px; flex: 1 1 360px; }
+}
 .outreach-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem; box-shadow: var(--shadow-sm); }
 .outreach-card h3 { font-size: 1.15rem; }
 .outreach-card p { color: var(--ink-soft); font-size: .95rem; margin: 0; }
