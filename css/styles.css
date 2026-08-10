@@ -327,7 +327,7 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 
 /* Feature (image + text) */
 .feature { display: grid; gap: clamp(1.6rem, 4vw, 3rem); align-items: center; }
-.feature--single { max-width: 760px; margin-inline: auto; }
+.feature--single { max-width: min(960px, 100%); margin-inline: auto; width: 100%; }
 @media (min-width: 860px) {
   .feature { grid-template-columns: 1fr 1fr; }
   .feature--reverse .feature__media { order: 2; }
