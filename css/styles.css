@@ -69,7 +69,7 @@ h1, h2, h3, h4 {
 h1 { font-size: clamp(2.3rem, 7vw, 4.1rem); font-optical-sizing: auto; }
 h2 { font-size: clamp(1.8rem, 4.6vw, 2.9rem); }
 h3 { font-size: clamp(1.25rem, 2.6vw, 1.55rem); }
-p  { margin: 0 0 1rem; }
+p  { margin: 0 0 1rem; text-wrap: pretty; -webkit-text-wrap: pretty; }
 :focus-visible { outline: 3px solid var(--clay); outline-offset: 3px; border-radius: 6px; }
 
 /* ---------- Layout helpers ---------- */
