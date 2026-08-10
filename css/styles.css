@@ -558,10 +558,19 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .welcome-words li { list-style: none; }
 .welcome-words .lang {
   font-family: var(--font-display), "Noto Sans SC", "Noto Sans Arabic", sans-serif; font-weight: 500;
-  font-size: clamp(1.35rem, 4.4vw, 2.3rem); line-height: 1.1; color: #fff;
+  font-size: clamp(1.35rem, 4.4vw, 2.3rem); line-height: 1.1;
   display: inline-block;
 }
-.welcome-words .lang--lead { color: #FFE7CF; }
+.welcome-words li:nth-child(1) .lang { color: #FFD57A; }
+.welcome-words li:nth-child(2) .lang { color: #58C1FF; }
+.welcome-words li:nth-child(3) .lang { color: #FF8CCB; }
+.welcome-words li:nth-child(4) .lang { color: #9E7BFF; }
+.welcome-words li:nth-child(5) .lang { color: #5DFC9F; }
+.welcome-words li:nth-child(6) .lang { color: #FF9A63; }
+.welcome-words li:nth-child(7) .lang { color: #5CC8FF; }
+.welcome-words li:nth-child(8) .lang { color: #C85BFF; }
+.welcome-words li:nth-child(9) .lang { color: #FFE660; }
+.welcome-words li:nth-child(10) .lang { color: #76FFE4; }
 .welcome-words .lang small {
   display: block; font-family: var(--font-body); font-weight: 600;
   font-size: .62rem; letter-spacing: .14em; text-transform: uppercase;
