@@ -76,11 +76,18 @@
     if (!location.hash) return;
     var id = location.hash.slice(1);
     if (!id) return;
-    var el = document.getElementById(id);
-    if (!el) return;
     var header = document.querySelector('.site-header');
     var headerHeight = header ? header.offsetHeight : 0;
-    // Allow layout to settle; sometimes fonts/images shift content.
+    // Prefer targets inside the weekly rhythm section to avoid matching feed-generated anchors
+    var rhythm = document.querySelector('[aria-labelledby="rhythm-h"]');
+    var el = null;
+    if (rhythm) {
+      try { el = rhythm.querySelector('#' + CSS.escape(id)); } catch (e) { el = null; }
+    }
+    // Fallback to any element with the id on the page
+    if (!el) el = document.getElementById(id);
+    if (!el) return;
+    // Allow layout to settle; sometimes fonts/images or feed injection shift content.
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
         var top = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
