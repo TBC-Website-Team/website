@@ -87,6 +87,10 @@
     // Fallback to any element with the id on the page
     if (!el) el = document.getElementById(id);
     if (!el) return;
+    // Debug logging to help identify incorrect targets when navigating from another page
+    try {
+      console.debug('[hash-scroll] id=', id, 'foundInRhythm=', !!rhythm && !!rhythm.querySelector && !!rhythm.querySelector('#' + CSS.escape(id)), 'finalEl=', el, 'text=', (el.textContent || '').trim().slice(0,120));
+    } catch (e) { console.debug('[hash-scroll] id=', id, 'finalEl=', el); }
     // Allow layout to settle; sometimes fonts/images or feed injection shift content.
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
