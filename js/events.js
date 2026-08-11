@@ -278,6 +278,8 @@
     requestAnimationFrame(function () {
       cards.forEach(function (c) { if (c._checkClamp) c._checkClamp(); });
     });
+    // Notify that feed content was rendered so other scripts can react (e.g. re-adjust hash scroll)
+    try { document.dispatchEvent(new CustomEvent('tbc:feed-rendered')); } catch (e) { /* ignore */ }
   }
 
   function failInto(target) {

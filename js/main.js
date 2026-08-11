@@ -102,4 +102,6 @@
 
   window.addEventListener('load', adjustHashScroll);
   window.addEventListener('hashchange', function () { setTimeout(adjustHashScroll, 0); });
+  // Re-run adjust after the feed renders (the feed inserts content above the rhythm)
+  document.addEventListener('tbc:feed-rendered', function () { setTimeout(adjustHashScroll, 50); });
 })();
