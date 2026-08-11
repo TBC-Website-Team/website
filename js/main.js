@@ -97,7 +97,7 @@
     // Allow layout to settle; sometimes fonts/images or feed injection shift content.
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        var top = scrollEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+        var top = scrollEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 24;
         window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
       });
     });
