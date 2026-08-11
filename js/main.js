@@ -91,10 +91,13 @@
     try {
       console.debug('[hash-scroll] id=', id, 'foundInRhythm=', !!rhythm && !!rhythm.querySelector && !!rhythm.querySelector('#' + CSS.escape(id)), 'finalEl=', el, 'text=', (el.textContent || '').trim().slice(0,120));
     } catch (e) { console.debug('[hash-scroll] id=', id, 'finalEl=', el); }
+    // If this element is inside a day-group, prefer scrolling to the day-group
+    var dayGroup = el.closest && el.closest('.day-group');
+    var scrollEl = dayGroup || el;
     // Allow layout to settle; sometimes fonts/images or feed injection shift content.
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        var top = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+        var top = scrollEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
         window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
       });
     });
