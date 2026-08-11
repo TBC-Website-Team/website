@@ -378,9 +378,10 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .filter-btn:hover { border-color: var(--clay); }
 .filter-btn.active { background: var(--clay); color: #fff; border-color: var(--clay); }
 
-.day-group { margin-bottom: 2.4rem; scroll-margin-top: 90px; }
+.day-group, .event-card { margin-bottom: 2.4rem; scroll-margin-top: 90px; }
 .day-group__head { display: flex; align-items: baseline; gap: .8rem; margin-bottom: 1rem; }
 .day-group__head h2 { margin: 0; }
+.section[id] { scroll-margin-top: 90px; }
 .day-group__head .count { color: var(--ink-soft); font-weight: 600; font-size: .9rem; }
 .event-card {
   display: grid; grid-template-columns: auto 1fr; gap: 1rem 1.2rem; align-items: start;
