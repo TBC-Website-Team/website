@@ -70,4 +70,25 @@
       form.reset();
     });
   });
+
+  /* ---- Hash anchor scroll fixer (accounts for sticky header) ---- */
+  function adjustHashScroll() {
+    if (!location.hash) return;
+    var id = location.hash.slice(1);
+    if (!id) return;
+    var el = document.getElementById(id);
+    if (!el) return;
+    var header = document.querySelector('.site-header');
+    var headerHeight = header ? header.offsetHeight : 0;
+    // Allow layout to settle; sometimes fonts/images shift content.
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var top = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+        window.scrollTo({ top: Math.max(0, top), behavior: 'auto' });
+      });
+    });
+  }
+
+  window.addEventListener('load', adjustHashScroll);
+  window.addEventListener('hashchange', function () { setTimeout(adjustHashScroll, 0); });
 })();
