@@ -294,7 +294,7 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .pagehero p { max-width: 55ch; }
 
 /* ---------- Cards & grids ---------- */
-.grid { display: grid; gap: 1.4rem; }
+.grid { display: grid; gap: 1.4rem; align-items: start; }
 .grid--2 { grid-template-columns: 1fr; }
 .grid--3 { grid-template-columns: 1fr; }
 .grid--4 { grid-template-columns: 1fr; }
