@@ -25,6 +25,7 @@
   // of the specials view. Occasional/monthly/one-off events are kept.
   var REGULAR_MIN_COUNT = 6;
   var REGULAR_MAX_GAP_DAYS = 10;
+  var REGULAR_EVENT_WHITELIST = [656, 657, 658, 1201];
 
   // Collect render targets present on this page.
   var targets = [];
@@ -72,9 +73,17 @@
       return String(date.getTime());
     }
   }
+  function isWhitelistedEvent(e) {
+    return REGULAR_EVENT_WHITELIST.some(function (id) {
+      return String(id) === String(e.id);
+    });
+  }
 
   function upcomingSpecials(events) {
     var cutoff = Date.now() - 12 * 3600 * 1000; // keep today's events
+    var horizon = new Date();
+    horizon.setMonth(horizon.getMonth() + 3);
+    var horizonTime = horizon.getTime();
     var series = {};
     events.forEach(function (e) {
       var d = F.parseDate(e.starts_at);
@@ -91,15 +100,29 @@
       var gap = medianGapDays(dates);
       var isRegular =
         items.length >= REGULAR_MIN_COUNT && gap !== null && gap <= REGULAR_MAX_GAP_DAYS;
-      if (isRegular) return; // covered by the weekly rhythm
+      var isWhitelisted = items.some(function (item) {
+        return isWhitelistedEvent(item.e);
+      });
+      if (isRegular && !isWhitelisted) return; // covered by the weekly rhythm
 
-      // next upcoming instance in this series
+      if (isRegular) {
+        // Regular series can have multiple explicitly selected instances.
+        items.forEach(function (item) {
+          var time = item.d.getTime();
+          if (time >= cutoff && time <= horizonTime && isWhitelistedEvent(item.e)) {
+            out.push({ event: item.e, start: item.d, count: items.length });
+          }
+        });
+        return;
+      }
+
+      // Non-regular series show only their next upcoming instance.
       var next = null;
       for (var i = 0; i < items.length; i++) {
-        if (items[i].d.getTime() >= cutoff) { next = items[i]; break; }
+        var nextTime = items[i].d.getTime();
+        if (nextTime >= cutoff && nextTime <= horizonTime) { next = items[i]; break; }
       }
-      if (!next) return;
-      out.push({ event: next.e, start: next.d, count: items.length });
+      if (next) out.push({ event: next.e, start: next.d, count: items.length });
     });
 
     // Merge any duplicate series that share a name + date (the feed has e.g.
