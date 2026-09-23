@@ -332,8 +332,10 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
   background: var(--clay-soft); color: var(--clay-dark); margin-bottom: 1rem;
 }
 .card__icon svg { width: 26px; height: 26px; }
-.card--link { text-decoration: none; color: inherit; display: block; }
+.card--link { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
+.grid--3 > .card--link { align-self: stretch; }
 .card--link .more { color: var(--clay-dark); font-weight: 700; display: inline-flex; align-items: center; gap: .3rem; }
+.card--link .more { margin-top: auto; }
 .card--link:hover .more { gap: .55rem; }
 
 /* Feature (image + text) */
