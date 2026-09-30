@@ -338,6 +338,18 @@ body { padding-bottom: 74px; } /* room for bar on mobile */
 .card--link .more { margin-top: auto; }
 .card--link:hover .more { gap: .55rem; }
 
+/* Balanced grid: a lone item on the last row sits centred instead of stranded left */
+@media (min-width: 620px) and (max-width: 939px) {
+  .grid--3.grid--balanced > :last-child:nth-child(2n+1) {
+    grid-column: 1 / -1; justify-self: center; width: calc(50% - .7rem);
+  }
+}
+@media (min-width: 940px) {
+  .grid--3.grid--balanced > :last-child:nth-child(3n+1) { grid-column: 2; }
+}
+/* A block following a grid keeps the same spacing as the gap between grid items */
+.grid + .service-card { margin-top: 1.4rem; }
+
 /* Feature (image + text) */
 .feature { display: grid; gap: clamp(1.6rem, 4vw, 3rem); align-items: center; }
 .feature--single { max-width: min(960px, 100%); margin-inline: auto; width: 100%; }
